@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let countdown = 10;
     const timerElement = document.getElementById("timer");
     let countdownStarted = false;
-    const musicDelay = 22000;
+    const musicDelay = 20000;
     const countdownSpeed = 2100;
     function updateCountdown() {
         if (countdown > 1) {
