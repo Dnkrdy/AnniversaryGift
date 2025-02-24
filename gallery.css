@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #121212, #000000);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+.text-box {
+    padding: 20px;
+    max-width: 700px;
+    border: 2px solid gold;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: glow 2s infinite alternate, fadeIn 1.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 15px;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+.cursor {
+    display: inline-block;
+    width: 5px;
+    background: gold;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.slideshow {
+    position: relative;
+    width: 90vw;
+    max-width: 1000px;
+    height: 80vh;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 80vh;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    border-radius: 15px;
+}
+.slide.active {
+    opacity: 1;
+}
+.nav-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+.dot.active {
+    opacity: 1;
+    background-color: gold;
+}
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid gold;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    width: 400px;
+    z-index: 1000;
+}
+.popup-content h2 {
+    color: gold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid gold;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    text-align: center;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.popup-content h2 {
+    color: gold;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+}
+.popup-content button {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+#revisit-btn {
+    background: gold;
+    color: black;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+#next-btn {
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.popup-content button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.close-btn:hover {
+    color: gold;
+    transform: scale(1.2);
+}
+@media (max-width: 480px) {
+    .popup-box {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup-content h2 {
+        font-size: 18px;
+    }
+    .popup-content button {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .close-btn {
+        font-size: 20px;
+        right: 10px;
+    }
+}
