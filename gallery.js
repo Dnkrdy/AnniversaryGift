@@ -95,10 +95,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Remove Text Section and Start Slideshow
     function removeTextSection() {
-        textContainer.style.transition = "opacity 1s ease-out";
+        const textContainer = document.getElementById("text-container");
+        if (!textContainer) return; // Stop if element doesn't exist
+    
+        textContainer.style.transition = "opacity 1s ease-out, transform 1s ease-out";
         textContainer.style.opacity = "0";
+        textContainer.style.transform = "scale(0.9)"; // Shrinks while fading out
+    
         setTimeout(() => {
-            textContainer.remove();
+            if (textContainer.parentNode) {
+                textContainer.remove();
+            }
             showGallery();
         }, 1000);
     }
